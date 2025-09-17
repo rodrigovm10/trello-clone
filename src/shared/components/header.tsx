@@ -9,7 +9,7 @@ export function Header() {
         <ul className='flex gap-4'>
           <li>
             <Link
-              href='/login'
+              href='/auth/login'
               className={buttonVariants({ variant: 'default' })}
             >
               Login
@@ -17,7 +17,7 @@ export function Header() {
           </li>
           <li>
             <Link
-              href='/login'
+              href='/auth/login'
               className={buttonVariants({ variant: 'secondary' })}
             >
               Get started for free
