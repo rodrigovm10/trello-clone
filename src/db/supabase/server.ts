@@ -1,6 +1,8 @@
 import { cookies } from 'next/headers'
 import { EnvConfig } from '@/shared/config/envs'
 import { createServerClient } from '@supabase/ssr'
+import { Database } from '@/shared/types/supabase'
+
 const supabaseUrl = EnvConfig().NEXT_PUBLIC_SUPABASE_URL
 const supabaseKey = EnvConfig().NEXT_PUBLIC_SUPABASE_ANON_KEY
 
