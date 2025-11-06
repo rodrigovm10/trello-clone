@@ -17,7 +17,7 @@ export const authRoutes = ['/auth/login']
  * 🔒 Required authentication.
  * @type {string[]}
  */
-export const protectedRoutes = ['/workspace', '/board']
+export const protectedRoutes = ['/workspace', '/board', '/workspace/:id']
 
 // /**
 //  * 🌱 These routes are used for the check slug.
@@ -40,4 +40,4 @@ export const apiAuthPrefix = '/auth/callback'
  * 🔓 Not required for authentication.
  * @type {string}
  */
-export const DEFAULT_LOGIN_REDIRECT_URL = '/dashboard'
+export const DEFAULT_LOGIN_REDIRECT_URL = '/workspace'

@@ -83,7 +83,6 @@ export type Database = {
           backgorund: string
           created_at: string
           id: string
-          position: number
           title: string
           workspace_id: string | null
         }
@@ -91,7 +90,6 @@ export type Database = {
           backgorund: string
           created_at?: string
           id?: string
-          position: number
           title: string
           workspace_id?: string | null
         }
@@ -99,7 +97,6 @@ export type Database = {
           backgorund?: string
           created_at?: string
           id?: string
-          position?: number
           title?: string
           workspace_id?: string | null
         }
@@ -172,6 +169,38 @@ export type Database = {
         }
         Relationships: []
       }
+      workspace_members: {
+        Row: {
+          created_at: string
+          id: number
+          role: Database['public']['Enums']['role_member'] | null
+          user_id: string | null
+          workspace_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          role?: Database['public']['Enums']['role_member'] | null
+          user_id?: string | null
+          workspace_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          role?: Database['public']['Enums']['role_member'] | null
+          user_id?: string | null
+          workspace_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'workspace_members_workspace_id_fkey'
+            columns: ['workspace_id']
+            isOneToOne: false
+            referencedRelation: 'workspace'
+            referencedColumns: ['id']
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -180,7 +209,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      role_member: 'member' | 'admin'
     }
     CompositeTypes: {
       [_ in never]: never
@@ -308,6 +337,8 @@ export const Constants = {
     Enums: {},
   },
   public: {
-    Enums: {},
+    Enums: {
+      role_member: ['member', 'admin'],
+    },
   },
 } as const

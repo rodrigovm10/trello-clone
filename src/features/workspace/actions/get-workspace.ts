@@ -36,3 +36,15 @@ export async function getWorkspaces() {
 
   return data
 }
+
+export async function getWorkspace(id: string) {
+  const supabase = await createClient()
+
+  const { data, error } = await supabase.from('workspace').select('*').eq('id', id).single()
+
+  if (error) {
+    throw new Error(error.message)
+  }
+
+  return data
+}

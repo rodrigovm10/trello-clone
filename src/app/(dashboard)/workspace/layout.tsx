@@ -7,7 +7,7 @@ export default async function WorkspaceLayout({ children }: { children: React.Re
   const workspaces = await getWorkspaces()
 
   return (
-    <section className='mx-auto flex max-w-7xl p-4'>
+    <section className='mx-auto flex  p-4'>
       <Sidebar workspaces={workspaces} />
       {children}
     </section>

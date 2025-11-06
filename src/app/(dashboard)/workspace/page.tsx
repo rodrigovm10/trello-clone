@@ -8,7 +8,7 @@ export default async function WorkspacePage() {
   if (!defaultWorkspace) {
     const workspace = await createDefaultWorkspace()
 
-    redirect(`/workspace/${workspace.id}`)
+    redirect(`/workspace/${workspace?.id}`)
   }
 
   redirect(`/workspace/${defaultWorkspace.id}`)
