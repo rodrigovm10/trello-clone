@@ -1,9 +1,9 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { WorkspaceItem } from './workspace-item'
 import { Workspace } from '@/shared/types/tables'
 import { CreateWorkspace } from './create-workspace'
+import { WorkspaceList } from './workspace-sidebar-list'
 
 interface SidebarProps {
   workspaces: Workspace[]
@@ -21,16 +21,7 @@ export function Sidebar({ workspaces, isMobile = false, className }: SidebarProp
         <h2 className='text-lg font-bold'>Workspaces</h2>
         <CreateWorkspace />
       </div>
-      <ul className='flex flex-col gap-2 '>
-        {workspaces.map(workspace => (
-          <li
-            key={workspace.id}
-            className=''
-          >
-            <WorkspaceItem workspace={workspace} />
-          </li>
-        ))}
-      </ul>
+      <WorkspaceList workspaces={workspaces} />
     </aside>
   )
 }
