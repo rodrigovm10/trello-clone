@@ -13,7 +13,7 @@ export default async function WorkspacePage({ params }: { params: { id: string }
   const boards = await getBoardsByWorkspaceId(workspace?.id || '')
 
   return (
-    <div className='max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10'>
+    <div className='px-4 sm:px-6 md:px-8 lg:px-10'>
       <header className='flex flex-col gap-2'>
         <div className='flex flex-row items-center gap-2 mb-4 sm:mb-6 md:mb-8 lg:mb-10'>
           <WorkspaceAvatar
@@ -35,19 +35,20 @@ export default async function WorkspacePage({ params }: { params: { id: string }
           {boards.map(board => (
             <div
               key={board.id}
-              className='flex flex-col gap-2 w-full aspect-square min-w-0 rounded-md cursor-pointer hover:brightness-80 transition-all duration-200'
+              className='flex flex-col gap-2 w-full h-32 min-w-0 rounded-lg cursor-pointer hover:brightness-80 transition-all duration-200'
               style={{ background: board.backgorund }}
             >
-              <div className='mt-auto bg-black/80 w-full rounded-b-md'>
+              <div className='mt-auto bg-black/80 w-full rounded-b-lg'>
                 <h3 className='text-xs sm:text-sm md:text-base text-white px-2 py-1.5 truncate'>
                   {board.title}
                 </h3>
               </div>
             </div>
           ))}
-          <div className='w-full aspect-square'>
-            <CreateNewBoard workspaceId={id} />
-          </div>
+          <CreateNewBoard
+            workspaceId={id}
+            className='w-full min-w-0 rounded-lg'
+          />
         </section>
       </section>
     </div>

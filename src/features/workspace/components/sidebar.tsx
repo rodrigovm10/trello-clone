@@ -1,7 +1,6 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { usePathname } from 'next/navigation'
 import { WorkspaceItem } from './workspace-item'
 import { Workspace } from '@/shared/types/tables'
 import { CreateWorkspace } from './create-workspace'
@@ -14,13 +13,9 @@ interface SidebarProps {
 
 export function Sidebar({ workspaces, isMobile = false, className }: SidebarProps) {
   return (
-    <section
+    <aside
       aria-label='Sidebar'
-      className={cn(
-        'hidden md:flex flex-col gap-2 h-full w-64 mr-4',
-        isMobile && 'flex',
-        className
-      )}
+      className={cn('hidden md:flex flex-col gap-2 h-full w-full ', isMobile && 'flex', className)}
     >
       <div className='flex items-center justify-between gap-8'>
         <h2 className='text-lg font-bold'>Workspaces</h2>
@@ -36,6 +31,6 @@ export function Sidebar({ workspaces, isMobile = false, className }: SidebarProp
           </li>
         ))}
       </ul>
-    </section>
+    </aside>
   )
 }

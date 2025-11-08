@@ -41,9 +41,10 @@ type CreateBoardForm = z.infer<typeof createBoardSchema>
 
 interface CreateNewBoardProps {
   workspaceId: string
+  className?: string
 }
 
-export function CreateNewBoard({ workspaceId }: CreateNewBoardProps) {
+export function CreateNewBoard({ workspaceId, className }: CreateNewBoardProps) {
   const [open, setOpen] = useState(false)
   const [isPending, startTransition] = useTransition()
 
@@ -80,7 +81,10 @@ export function CreateNewBoard({ workspaceId }: CreateNewBoardProps) {
       <DialogTrigger asChild>
         <Button
           variant='outline'
-          className='w-full h-full min-h-[8rem] sm:min-h-[10rem] rounded-md flex flex-col items-center justify-center border-dashed border-2 hover:bg-accent/50 transition-colors'
+          className={cn(
+            'w-ine h-full  rounded-md flex flex-col items-center justify-center border-dashed border-2 hover:bg-accent/50 transition-colors',
+            className
+          )}
           size='lg'
         >
           <span className='text-xs sm:text-sm md:text-base'>Create new board</span>
